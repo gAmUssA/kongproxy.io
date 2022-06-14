@@ -1,0 +1,91 @@
+baseURL = 'https://kongproxy.io/'
+languageCode = 'en-us'
+title = 'Kong Devrel Corner'
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+[permalinks]
+posts = '/:year/:month/:day/:title/'
+
+[taxonomies]
+category = "categories"
+series = "series"
+tag = "tags"
+author = "authors"
+
+[params]
+# Custom CSS
+#custom_css = ["css/base16.css", "css/custom.css"]
+customCSS = ["css/asciidoc.css"]
+author = "Kong Developer Relation"
+info = "(Unofficial) Blog of DevRel at Kong"
+description = "just stuff from Kong Devrels"
+keywords = "stuff,kong,gateway"
+#avatarurl = "images/avatar.jpg"
+#gravatar = "john.doe@example.com"
+
+#favicon_32 = "/img/favicon-32x32.png"
+#favicon_16 = "/img/favicon-16x16.png"
+
+since = 2022
+
+enableTwemoji = true
+
+colorScheme = "auto"
+hidecolorschemetoggle = false
+
+[markup.asciidocext]
+extensions = ["asciidoctor-html5s", "asciidoctor-diagram"]
+workingFolderCurrent = true
+preserveTOC = true
+[markup.asciidocext.attributes]
+#imagesdir = "../pics"
+source-highlighter = "rouge"
+rouge-style = "github"
+rouge-css = "style"
+icons = "font"
+ref-less = "https://less.works/[LeSS]"
+
+
+
+# Social links
+[[params.social]]
+name = "Github"
+icon = "fa fa-github fa-2x"
+weight = 1
+url = "https://github.com/kong/"
+[[params.social]]
+name = "Kong"
+icon = "fa fa-twitter fa-2x"
+weight = 2
+url = "https://twitter.com/thekonginc/"
+[[params.social]]
+name = "gamussa"
+icon = "fa fa-twitter fa-2x"
+weight = 3
+url = "https://twitter.com/gamussa/"
+
+# Menu links
+[[menu.main]]
+name = "Blog"
+weight = 1
+url  = "posts/"
+#[[menu.main]]
+#name = "About"
+#weight = 2
+#url = "about/"
+
+[security]
+enableInlineShortcodes = false
+
+[security.exec]
+allow = ["^dart-sass-embedded$", "^go$", "^npx$", "^postcss$", "^asciidoctor$"]
+osEnv = ["(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|RUBYLIB|GEM_PATH)$"]
+
+[security.funcs]
+getenv = ["^HUGO_"]
+
+[security.http]
+methods = ["(?i)GET|POST"]
+urls = [".*"]
