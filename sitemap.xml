@@ -2,61 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://kongproxy.io/authors/</loc>
+    <loc>https://kong.builders/authors/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/categories/</loc>
+    <loc>https://kong.builders/categories/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/tags/kic/</loc>
+    <loc>https://kong.builders/tags/kic/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/tags/kong/</loc>
+    <loc>https://kong.builders/tags/kong/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/2022/06/14/kong-builders-june-8th-2022/</loc>
+    <loc>https://kong.builders/2022/06/14/kong-builders-june-8th-2022/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/</loc>
+    <loc>https://kong.builders/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/tags/kongbuilders/</loc>
+    <loc>https://kong.builders/tags/kongbuilders/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/series/kongbuilders/</loc>
+    <loc>https://kong.builders/series/kongbuilders/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/categories/kongbuilders/</loc>
+    <loc>https://kong.builders/categories/kongbuilders/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/tags/kubernetes/</loc>
+    <loc>https://kong.builders/tags/kubernetes/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/posts/</loc>
+    <loc>https://kong.builders/posts/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/series/</loc>
+    <loc>https://kong.builders/series/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/tags/</loc>
+    <loc>https://kong.builders/tags/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/authors/viktor-gamov/</loc>
+    <loc>https://kong.builders/authors/viktor-gamov/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/2022/06/13/hello/</loc>
+    <loc>https://kong.builders/2022/06/13/hello/</loc>
     <lastmod>2022-06-13T23:18:19-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/tags/asciidoc/</loc>
+    <loc>https://kong.builders/tags/asciidoc/</loc>
     <lastmod>2022-06-13T23:18:19-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/tags/hugo/</loc>
+    <loc>https://kong.builders/tags/hugo/</loc>
     <lastmod>2022-06-13T23:18:19-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/authors/rick-spurgeon/</loc>
+    <loc>https://kong.builders/authors/rick-spurgeon/</loc>
     <lastmod>2022-06-13T23:18:19-04:00</lastmod>
   </url><url>
-    <loc>https://kongproxy.io/tags/test/</loc>
+    <loc>https://kong.builders/tags/test/</loc>
     <lastmod>2022-06-13T23:18:19-04:00</lastmod>
   </url>
 </urlset>

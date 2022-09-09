@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on Kong Devrel Corner</title>
-    <link>https://kongproxy.io/authors/</link>
+    <link>https://kong.builders/authors/</link>
     <description>Recent content in Authors on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kongproxy.io/authors/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kong.builders/authors/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Viktor Gamov</title>
-      <link>https://kongproxy.io/authors/viktor-gamov/</link>
+      <link>https://kong.builders/authors/viktor-gamov/</link>
       <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
       
-      <guid>https://kongproxy.io/authors/viktor-gamov/</guid>
+      <guid>https://kong.builders/authors/viktor-gamov/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rick Spurgeon</title>
-      <link>https://kongproxy.io/authors/rick-spurgeon/</link>
+      <link>https://kong.builders/authors/rick-spurgeon/</link>
       <pubDate>Mon, 13 Jun 2022 23:18:19 -0400</pubDate>
       
-      <guid>https://kongproxy.io/authors/rick-spurgeon/</guid>
+      <guid>https://kong.builders/authors/rick-spurgeon/</guid>
       <description></description>
     </item>
     

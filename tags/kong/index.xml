@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kong on Kong Devrel Corner</title>
-    <link>https://kongproxy.io/tags/kong/</link>
+    <link>https://kong.builders/tags/kong/</link>
     <description>Recent content in kong on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kongproxy.io/tags/kong/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kong.builders/tags/kong/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kong Builders - June 8th 2022</title>
-      <link>https://kongproxy.io/2022/06/14/kong-builders-june-8th-2022/</link>
+      <link>https://kong.builders/2022/06/14/kong-builders-june-8th-2022/</link>
       <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
       
-      <guid>https://kongproxy.io/2022/06/14/kong-builders-june-8th-2022/</guid>
+      <guid>https://kong.builders/2022/06/14/kong-builders-june-8th-2022/</guid>
       <description>Table of Contents Youtube link Plugins Bot Detection Proxy Cache Metrics with Prometheus and Grafana In this episode of Kong Builders, we took a look at some of the Kong Gateway OSS Plugins and how to run those in Kubernetes with Kong Ingress Controller.
 Youtube link Plugins Bot Detection 🔗 Bot Detection
 Bot Detection Plugin config for Kubernetes 1 2 3 4 5 6 7 8 9 10 11 12 13 14 apiVersion: configuration.</description>

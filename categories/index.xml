@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Kong Devrel Corner</title>
-    <link>https://kongproxy.io/categories/</link>
+    <link>https://kong.builders/categories/</link>
     <description>Recent content in Categories on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kongproxy.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kong.builders/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>kongbuilders</title>
-      <link>https://kongproxy.io/categories/kongbuilders/</link>
+      <link>https://kong.builders/categories/kongbuilders/</link>
       <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
       
-      <guid>https://kongproxy.io/categories/kongbuilders/</guid>
+      <guid>https://kong.builders/categories/kongbuilders/</guid>
       <description></description>
     </item>
     
