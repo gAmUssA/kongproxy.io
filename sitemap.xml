@@ -3,13 +3,60 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://kongproxy.io/authors/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
     <loc>https://kongproxy.io/categories/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/tags/kic/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/tags/kong/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/2022/06/14/kong-builders-june-8th-2022/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
     <loc>https://kongproxy.io/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/tags/kongbuilders/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/series/kongbuilders/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/categories/kongbuilders/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/tags/kubernetes/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/posts/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
     <loc>https://kongproxy.io/series/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
     <loc>https://kongproxy.io/tags/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/authors/viktor-gamov/</loc>
+    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/2022/06/13/hello/</loc>
+    <lastmod>2022-06-13T23:18:19-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/tags/asciidoc/</loc>
+    <lastmod>2022-06-13T23:18:19-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/tags/hugo/</loc>
+    <lastmod>2022-06-13T23:18:19-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/authors/rick-spurgeon/</loc>
+    <lastmod>2022-06-13T23:18:19-04:00</lastmod>
+  </url><url>
+    <loc>https://kongproxy.io/tags/test/</loc>
+    <lastmod>2022-06-13T23:18:19-04:00</lastmod>
   </url>
 </urlset>

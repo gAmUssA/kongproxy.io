@@ -5,6 +5,16 @@
     <link>https://kongproxy.io/categories/</link>
     <description>Recent content in Categories on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://kongproxy.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kongproxy.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kongbuilders</title>
+      <link>https://kongproxy.io/categories/kongbuilders/</link>
+      <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
+      
+      <guid>https://kongproxy.io/categories/kongbuilders/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

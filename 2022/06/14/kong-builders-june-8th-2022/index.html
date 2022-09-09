@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Kong Developer Relation">
+<meta name="description" content="The shownotes from Kong Builders episode for June 8th 2022">
+<meta name="keywords" content="stuff,kong,gateway">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kong Builders - June 8th 2022"/>
+<meta name="twitter:description" content="The shownotes from Kong Builders episode for June 8th 2022"/>
+
+<meta property="og:title" content="Kong Builders - June 8th 2022" />
+<meta property="og:description" content="The shownotes from Kong Builders episode for June 8th 2022" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kongproxy.io/2022/06/14/kong-builders-june-8th-2022/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-14T01:23:50-04:00" />
+<meta property="article:modified_time" content="2022-06-14T01:23:50-04:00" />
+
+
+
+
+
+  <title>Kong Devrel Corner</title>
+
+  
+  <link rel="canonical" href="https://kongproxy.io/2022/06/14/kong-builders-june-8th-2022/">
+  
+
+  <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.6b1a4fbc48955b72aea7913e43fabeb45e8bc120da5aa41b598dd33adcac4b59.css" integrity="sha256-axpPvEiVW3Kup5E&#43;Q/q&#43;tF6LwSDaWqQbWY3TOtysS1k=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.39e41a7f16bdf8cb16e43cae7d714fa1016f1d2d2898a5b3f27f42c9979204e2.css" integrity="sha256-OeQafxa9&#43;MsW5DyufXFPoQFvHS0omKWz8n9CyZeSBOI=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+   
+  
+    
+    <link rel="stylesheet" href="/css/asciidoc.min.79e5c878b74c6420a9af1e46d76fc5c90af4569034eea66cef6d2358f4111a6d.css" integrity="sha256-eeXIeLdMZCCprx5G12/FyQr0VpA07qZs720jWPQRGm0=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+
+
+  <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+  
+
+  <meta name="generator" content="Hugo 0.102.3" />
+
+
+  
+
+</head>
+
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Kong Devrel Corner
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://kongproxy.io/2022/06/14/kong-builders-june-8th-2022/">
+              Kong Builders - June 8th 2022
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-06-14T01:23:50-04:00">
+                June 14, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/viktor-gamov/">Viktor Gamov</a></div>
+
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/kongbuilders/">kongbuilders</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/kongbuilders/">kongbuilders</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/kubernetes/">kubernetes</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/kong/">kong</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/kic/">kic</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_youtube_link">Youtube link</a></li>
+<li><a href="#_plugins">Plugins</a>
+<ul class="sectlevel2">
+<li><a href="#_bot_detection">Bot Detection</a></li>
+<li><a href="#_proxy_cache">Proxy Cache</a></li>
+<li><a href="#_metrics_with_prometheus_and_grafana">Metrics with Prometheus and Grafana</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In this episode of Kong Builders, we took a look at some of the Kong Gateway OSS Plugins and how to run those in Kubernetes with Kong Ingress Controller.</p>
+</div>
+<!-- toc disabled -->
+<div class="sect1">
+<h2 id="_youtube_link">Youtube link</h2>
+<div class="sectionbody">
+<div class="videoblock">
+<div class="content">
+<iframe width="800" height="600" src="https://www.youtube.com/embed/e0FaI8Y291w?rel=0&amp;list=PLg_AhYkg50vjOi0aIr6ZPh3iRwO0YX2-z" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plugins">Plugins</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bot_detection">Bot Detection</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>🔗 <a href="https://docs.konghq.com/hub/kong-inc/bot-detection/">Bot Detection</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Bot Detection Plugin config for Kubernetes</div>
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="yaml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span style="color: #008080">apiVersion</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">configuration.konghq.com/v1</span>
+<span style="color: #008080">kind</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">KongClusterPlugin</span>
+<span style="color: #008080">metadata</span><span style="background-color: #f8f8f8">:</span>
+  <span style="color: #008080">name</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">global-bot-detection</span>
+  <span style="color: #008080">annotations</span><span style="background-color: #f8f8f8">:</span>
+    <span style="color: #008080">kubernetes.io/ingress.class</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">kong</span>
+  <span style="color: #008080">labels</span><span style="background-color: #f8f8f8">:</span>
+    <span style="color: #008080">global</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">&#34;</span><span style="color: #d14">true&#34;</span>
+<span style="color: #008080">config</span><span style="background-color: #f8f8f8">:</span>
+  <span style="color: #008080">deny</span><span style="background-color: #f8f8f8">:</span>
+    <span style="background-color: #f8f8f8">-</span> <span style="color: #d14">kong-builders</span>
+    <span style="background-color: #f8f8f8">-</span> <span style="color: #d14">kongcast</span>
+    <span style="background-color: #f8f8f8">-</span> <span style="color: #d14">instagram</span>
+<span style="color: #008080">plugin</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">bot-detection</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proxy_cache">Proxy Cache</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>🔗 <a href="https://docs.konghq.com/hub/kong-inc/proxy-cache/">Proxy Caching Plugin</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Bot Detection Plugin config for Kubernetes</div>
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="yaml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre><span style="color: #008080">apiVersion</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">configuration.konghq.com/v1</span>
+<span style="color: #008080">kind</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">KongClusterPlugin</span>
+<span style="color: #008080">metadata</span><span style="background-color: #f8f8f8">:</span>
+  <span style="color: #008080">name</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">global-proxy-cache</span>
+  <span style="color: #008080">annotations</span><span style="background-color: #f8f8f8">:</span>
+    <span style="color: #008080">kubernetes.io/ingress.class</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">kong</span>
+  <span style="color: #008080">labels</span><span style="background-color: #f8f8f8">:</span>
+    <span style="color: #008080">global</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">&#34;</span><span style="color: #d14">true&#34;</span>
+<span style="color: #008080">config</span><span style="background-color: #f8f8f8">:</span>
+  <span style="color: #008080">response_code</span><span style="background-color: #f8f8f8">:</span>
+    <span style="background-color: #f8f8f8">-</span> <span style="color: #009999">200</span>
+  <span style="color: #008080">request_method</span><span style="background-color: #f8f8f8">:</span>
+    <span style="background-color: #f8f8f8">-</span> <span style="color: #d14">GET</span>
+    <span style="background-color: #f8f8f8">-</span> <span style="color: #d14">HEAD</span>
+  <span style="color: #008080">content_type</span><span style="background-color: #f8f8f8">:</span>
+    <span style="background-color: #f8f8f8">-</span> <span style="color: #d14">text/plain</span>
+    <span style="background-color: #f8f8f8">-</span> <span style="color: #d14">application/json</span>
+  <span style="color: #008080">cache_ttl</span><span style="background-color: #f8f8f8">:</span> <span style="color: #009999">60</span>
+  <span style="color: #008080">strategy</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">memory</span>
+<span style="color: #008080">plugin</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">proxy-cache</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_metrics_with_prometheus_and_grafana">Metrics with Prometheus and Grafana</h3>
+<div class="listingblock">
+<div class="title">values.yaml</div>
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="yaml"><span style="color: #008080">admin</span><span style="background-color: #f8f8f8">:</span>
+  <span style="color: #999988;font-style: italic"># https://github.com/Kong/charts/blob/master/charts/kong/README.md#prometheus-operator-integration</span>
+  <span style="color: #008080">labels</span><span style="background-color: #f8f8f8">:</span>
+    <span style="color: #008080">enable-metrics</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">&#34;</span><span style="color: #d14">true&#34;</span>
+  <span style="color: #008080">tls</span><span style="background-color: #f8f8f8">:</span>
+    <span style="color: #008080">parameters</span><span style="background-color: #f8f8f8">:</span> <span style="background-color: #f8f8f8">[</span> <span style="background-color: #f8f8f8">]</span>
+<span style="color: #999988;font-style: italic"># enable metrics collection</span>
+
+<span style="color: #008080">podAnnotations</span><span style="background-color: #f8f8f8">:</span>
+  <span style="color: #008080">prometheus.io/scrape</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">&#34;</span><span style="color: #d14">true&#34;</span> <span style="color: #999988;font-style: italic"># Ask Prometheus to scrape the</span>
+  <span style="color: #008080">prometheus.io/port</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">&#34;</span><span style="color: #d14">8100&#34;</span>   <span style="color: #999988;font-style: italic"># Kong pods for metrics</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.konghq.com/hub/kong-inc/prometheus/">Prometheus plugin (metrics setup)</a></p>
+</li>
+<li>
+<p><a href="https://docs.konghq.com/hub/kong-inc/ip-restriction/">IP Restriction</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2022
+     Kong Developer Relation 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+  
+  <script src="/js/coder.min.236049395dc3682fb2719640872958e12f1f24067bb09c327b233e6290c7edac.js" integrity="sha256-I2BJOV3DaC&#43;ycZZAhylY4S8fJAZ7sJwyeyM&#43;YpDH7aw="></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

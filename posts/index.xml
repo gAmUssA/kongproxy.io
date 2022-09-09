@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kong Devrel Corner</title>
-    <link>https://kongproxy.io/</link>
-    <description>Recent content on Kong Devrel Corner</description>
+    <title>Posts on Kong Devrel Corner</title>
+    <link>https://kongproxy.io/posts/</link>
+    <description>Recent content in Posts on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kongproxy.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kongproxy.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kong Builders - June 8th 2022</title>
       <link>https://kongproxy.io/2022/06/14/kong-builders-june-8th-2022/</link>

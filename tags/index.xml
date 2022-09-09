@@ -5,6 +5,70 @@
     <link>https://kongproxy.io/tags/</link>
     <description>Recent content in Tags on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://kongproxy.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kongproxy.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kic</title>
+      <link>https://kongproxy.io/tags/kic/</link>
+      <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
+      
+      <guid>https://kongproxy.io/tags/kic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kong</title>
+      <link>https://kongproxy.io/tags/kong/</link>
+      <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
+      
+      <guid>https://kongproxy.io/tags/kong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kongbuilders</title>
+      <link>https://kongproxy.io/tags/kongbuilders/</link>
+      <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
+      
+      <guid>https://kongproxy.io/tags/kongbuilders/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://kongproxy.io/tags/kubernetes/</link>
+      <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
+      
+      <guid>https://kongproxy.io/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>asciidoc</title>
+      <link>https://kongproxy.io/tags/asciidoc/</link>
+      <pubDate>Mon, 13 Jun 2022 23:18:19 -0400</pubDate>
+      
+      <guid>https://kongproxy.io/tags/asciidoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://kongproxy.io/tags/hugo/</link>
+      <pubDate>Mon, 13 Jun 2022 23:18:19 -0400</pubDate>
+      
+      <guid>https://kongproxy.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>https://kongproxy.io/tags/test/</link>
+      <pubDate>Mon, 13 Jun 2022 23:18:19 -0400</pubDate>
+      
+      <guid>https://kongproxy.io/tags/test/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
