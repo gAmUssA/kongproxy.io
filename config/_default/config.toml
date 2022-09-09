@@ -1,4 +1,4 @@
-baseURL = 'https://kongproxy.io/'
+baseURL = 'https://kong.builders/'
 languageCode = 'en-us'
 title = 'Kong Devrel Corner'
 theme = "hugo-coder"
