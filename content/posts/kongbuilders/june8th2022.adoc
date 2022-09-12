@@ -51,7 +51,6 @@ include::../{sourcedir}/proxy-cache.yaml[]
 include::../{sourcedir}/values.yaml[tags=contains,indent=0]
 ----
 
-
 * https://docs.konghq.com/hub/kong-inc/prometheus/[Prometheus plugin (metrics setup)]
 * https://docs.konghq.com/hub/kong-inc/ip-restriction/[IP Restriction]
 
