@@ -5,7 +5,6 @@ on:
 
 jobs:
   preview:
-  build-deploy:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v1
@@ -22,7 +21,7 @@ jobs:
 
       - name: Build
         run: docker run --rm -v $PWD:/src gamussa/my-hugo-builder bash -c "cd /src && /hugo/hugo -F --buildDrafts --destination public"
-        
+
       - name: Link Checker (hyperlink)
         uses: untitaker/hyperlink@0.1.26
         with:
