@@ -1,7 +1,7 @@
 baseURL = 'https://kong.builders/'
 languageCode = 'en-us'
 title = 'Kong Devrel Corner'
-theme = "hugo-coder"
+theme = ["hugo-coder"]
 languagecode = "en"
 defaultcontentlanguage = "en"
 
@@ -15,9 +15,8 @@ tag = "tags"
 author = "authors"
 
 [params]
-# Custom CSS
-#custom_css = ["css/base16.css", "css/custom.css"]
-customCSS = ["css/asciidoc.css"]
+# Custom SCSS
+customSCSS = ["scss/asciidoctor.scss"]
 author = "Kong Developer Relation"
 info = "(Unofficial) Blog of DevRel at Kong"
 description = "just stuff from Kong Devrels"
@@ -25,8 +24,8 @@ keywords = "stuff,kong,gateway"
 #avatarurl = "images/avatar.jpg"
 #gravatar = "john.doe@example.com"
 
-#favicon_32 = "/img/favicon-32x32.png"
-#favicon_16 = "/img/favicon-16x16.png"
+favicon_32 = "/images/favicon-32x32.png"
+favicon_16 = "/images/favicon-16x16.png"
 
 since = 2022
 
@@ -46,6 +45,7 @@ rouge-style = "github"
 rouge-css = "style"
 icons = "font"
 ref-less = "https://less.works/[LeSS]"
+experimental = "true"
 
 
 

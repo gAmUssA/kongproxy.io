@@ -5,7 +5,6 @@ on:
 
 jobs:
   preview:
-  build-deploy:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v1
@@ -15,14 +14,14 @@ jobs:
       - name: Setup base URL env var
         run: |
           export PRNUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") 
-          echo BASEURL="https://kong-builders-blog-preview-pr-"$PRNUMBER".surge.sh/" >> $GITHUB_ENV
+          echo BASEURL="https://gamussa-kongproxy.io-preview-pr-"$PRNUMBER".surge.sh/" >> $GITHUB_ENV
 
       - name: Report base URL env var
         run: echo "${{ env.BASEURL }}"
 
       - name: Build
         run: docker run --rm -v $PWD:/src gamussa/my-hugo-builder bash -c "cd /src && /hugo/hugo -F --buildDrafts --destination public"
-        
+
       - name: Link Checker (hyperlink)
         uses: untitaker/hyperlink@0.1.26
         with:
@@ -33,9 +32,18 @@ jobs:
         id: preview_step
         with:
           surge_token: ${{ secrets.SURGE_TOKEN }}
-          github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           dist: public
           failOnError: 'true'
           teardown: true
           build: |
             echo Deploying to surge.sh
+      - name: Comment prview URL
+        uses: wow-actions/auto-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issuesOpenedReactions: 'hooray, +1'
+          issuesOpenedComment: |
+            👋 @{{ author }}
+            Thank you for raising an issue. We will investigate into the matter and get back to you as soon as possible.
+            Please make sure you have given us as much context as possible.
