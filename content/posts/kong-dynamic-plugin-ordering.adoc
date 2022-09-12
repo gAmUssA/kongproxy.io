@@ -1,6 +1,6 @@
 ---
 title: "Kong Dynamic Plugin Ordering"
-description: "This is a tutorial how you can use a new dynamic plugin ordering in Kong Gateway"
+description: "This is a tutorial how you can use a new dynamic plugin ordering in Kong Gateway."
 date: 2022-09-09
 draft: false
 slug: "plugin-ordering"
@@ -17,13 +17,13 @@ series: []
 :toc: macro
 
 .TL;DR
-NOTE: Use a new dynamic plugin ordering for explicitly control execution of plugins.
-You can read more in official documentation.
+NOTE: Use a new dynamic plugin ordering to control plugins' execution explicitly.
+You can read more in the official documentation.
 TODO add documentation links.
 
-In this blog post/tutorial you will learn:
+In this blog post/tutorial, you will learn:
 
-- Why plugin ordering is important.
+- Why plugin ordering is essential.
 - How you can use dynamic plugin ordering.
 
 WARNING: This feature is only available in Kong Enterprise starting from version 3.0
@@ -40,13 +40,13 @@ toc::[]
 == Introduction of the Problem.
 
 All the bundled Kong Gateway plugins have static execution priority.
-Which means, `pre-function` plugin, for example, will be always running before `bot-detection` ro `zipkin` plugins, `mtls-auth` will be always running before `oauth2`.
+It means the `pre-function` plugin, for example, will always be running before `bot-detection` or `zipkin` plugins, `mtls-auth` will always be running before `oauth2`.
 And when customers have a requirement to customize execution order (like run `rate-limiting` before `key-auth`) they can't do that easily.
 
-Projects like https://github.com/Kong/priority-updater[`priority-updater`] can wrap existing plugins and update execution order. 
-But this would be consideres as hack and workaround of actual problem.
+Projects like https://github.com/Kong/priority-updater[`priority-updater`] can wrap existing plugins and update execution order.
+But this would be considered a hack and workaround for the actual problem.
 
-In Kong Gateway 3.0 we're introducing a _dynamic plugin ordering_ functionality. 
+In Kong Gateway 3.0 we're introducing a _dynamic plugin ordering_ functionality.
 You can specify a directed graph of plugins.
 With this, we should be able to specify config that `rate-limiting` should run before `key-auth` or `oath2-introspection`.
 
@@ -55,7 +55,7 @@ With this, we should be able to specify config that `rate-limiting` should run b
 .I have Kong Gateway 3.0 Enterprise instance running locally.
 image::kong_gw_3_0_insomnia.png[]
 
-.A service points to random Wow expression by Owen Wilson.
+.A service points to a random Wow expression by Owen Wilson.
 image::create_wow_service_insomnia.png[]
 
 .A route `/wow` points to `wow-service`
@@ -92,8 +92,8 @@ $ curl -i -X POST http://localhost:8001/plugins \
     --data config.policy=local  #<7>
 ----
 <1> Kong Gateway 3.0 up and running
-<2> A service points to random Wow expression by Owen Wilson. 
-<3> A route `/wow` poins to `wow-service`.
+<2> A service points to a random Wow expression by Owen Wilson.
+<3> A route `/wow` points to `wow-service`.
 <4> Create a `key-auth` plugin instance.
 <5> Create `example-user` consumer.
 <6> Create apiKey `test`
@@ -101,8 +101,8 @@ $ curl -i -X POST http://localhost:8001/plugins \
 
 Here is a default flow: API user calls `:8000/wow` to access API.
 Kong (via `key-auth` plugin) is there is an API key in the header.
-If there is one, it validates it and passes next to `rate-limiting` plugin.
-If there is no apiKey in header, Kong throws an error 
+If there is one, it validates it and passes next to the `rate-limiting` plugin.
+If there is no apiKey in the header, Kong throws an error.
 
 [source,json]
 .error.json
@@ -114,7 +114,7 @@ If there is no apiKey in header, Kong throws an error
 
 == A solution implemented in Kong Gateway 3.0
 
-Next, let's modify this behavior in order to alway invoke `rate-limiting` regardless if there is key provided or not.
+Next, let's modify this behavior to invoke `rate-limiting` regardless of whether a key is provided or not.
 
 [source,bash]
 .filename.sh
@@ -129,9 +129,9 @@ curl -i -X POST http://localhost:8001/plugins \
   --data config.policy=local \
   --data ordering.before.access=key-auth    #<1>
 ----
-<1> A very important new config `ordering.before.access` defines before what phase of specified plugin this plugin needs to be invoked.
+<1> an essential new config `ordering.before.access` defines what phase of the specified plugin this plugin needs to be invoked.
 
-Now, when we invoke `:8000/wow` API, we will get `No API key found in request` but if we introspect the headers we will see that `rate-limiting` plugin is up for the task already.
+Now, when we invoke the `:8000/wow` API, we will get `No API key found in request,` but if we introspect the headers, we will see that the `rate-limiting` plugin is up for the task already.
 
 [source,shell]
 .filename.js
