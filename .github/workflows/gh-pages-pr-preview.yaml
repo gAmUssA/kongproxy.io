@@ -1,0 +1,41 @@
+name: Build and Deploy PR Preview
+
+on:
+  pull_request:
+
+jobs:
+  preview:
+  build-deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Setup base URL env var
+        run: |
+          export PRNUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") 
+          echo BASEURL="https://kong-builders-blog-preview-pr-"$PRNUMBER".surge.sh/" >> $GITHUB_ENV
+
+      - name: Report base URL env var
+        run: echo "${{ env.BASEURL }}"
+
+      - name: Build
+        run: docker run --rm -v $PWD:/src gamussa/my-hugo-builder bash -c "cd /src && /hugo/hugo -F --buildDrafts --destination public"
+        
+      - name: Link Checker (hyperlink)
+        uses: untitaker/hyperlink@0.1.26
+        with:
+          args: public
+
+      - name: Deploy
+        uses: afc163/surge-preview@v1
+        id: preview_step
+        with:
+          surge_token: ${{ secrets.SURGE_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          dist: public
+          failOnError: 'true'
+          teardown: true
+          build: |
+            echo Deploying to surge.sh
