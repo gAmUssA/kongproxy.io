@@ -1,0 +1,170 @@
+---
+title: "Kong Dynamic Plugin Ordering"
+description: "This is a tutorial how you can use a new dynamic plugin ordering in Kong Gateway"
+date: 2022-09-09
+draft: false
+slug: "plugin-ordering"
+authors: ["Viktor Gamov"]
+tags: ["Kong", "tutorial"]
+categories: ["Kong", "Gateway"]
+externalLink : ""
+series: []
+---
+:source-highlighter: rouge
+:imagesdir: /images/2022/
+:rouge-style: base16
+:icons: font
+:toc: macro
+
+.TL;DR
+NOTE: Use a new dynamic plugin ordering for explicitly control execution of plugins.
+You can read more in official documentation.
+TODO add documentation links.
+
+In this blog post/tutorial you will learn:
+
+- Why plugin ordering is important.
+- How you can use dynamic plugin ordering.
+
+WARNING: This feature is only available in Kong Enterprise starting from version 3.0
+
+<<<
+
+// - 1st paragraph: The problem and recommendation summary. The background can be in an appendix.
+// - 2nd paragraph: Further explanation of the situation.
+// - 3rd paragraph: The root cause and solution. Other options considered can be in an appendix.
+// - 4th paragraph: Full recommendation and implementation plan.
+
+toc::[]
+
+== Introduction of the Problem.
+
+All the bundled Kong Gateway plugins have static execution priority.
+Which means, `pre-function` plugin, for example, will be always running before `bot-detection` ro `zipkin` plugins, `mtls-auth` will be always running before `oauth2`.
+And when customers have a requirement to customize execution order (like run `rate-limiting` before `key-auth`) they can't do that easily.
+
+Projects like https://github.com/Kong/priority-updater[`priority-updater`] can wrap existing plugins and update execution order. 
+But this would be consideres as hack and workaround of actual problem.
+
+In Kong Gateway 3.0 we're introducing a _dynamic plugin ordering_ functionality. 
+You can specify a directed graph of plugins.
+With this, we should be able to specify config that `rate-limiting` should run before `key-auth` or `oath2-introspection`.
+
+== Example: Default behavior before Kong 3.0
+
+.I have Kong Gateway 3.0 Enterprise instance running locally.
+image::kong_gw_3_0_insomnia.png[]
+
+.A service points to random Wow expression by Owen Wilson.
+image::create_wow_service_insomnia.png[]
+
+.A route `/wow` points to `wow-service`
+image::create_route_insomnia.png[]
+
+[source,bash]
+.filename
+----
+$ curl -v localhost:8000  #<1>
+
+$ curl --request POST \
+  --url http://localhost:8001/services/ \
+  --data name=wow-service \
+  --data url=https://owen-wilson-wow-api.herokuapp.com/wows/random  #<2>
+
+$ curl --request POST \
+  --url http://localhost:8001/services/wow-service/routes \
+  --data paths=/wow   #<3>
+
+$ curl -i -X POST http://localhost:8001/plugins \
+    --data name=key-auth  #<4>
+
+$ curl -i -X POST \
+    --url http://localhost:8001/consumers/ \
+    --data "username=example-user"  #<5>
+
+$ curl -i -X POST \
+  --url http://localhost:8001/consumers/example-user/key-auth/ \
+  --data 'key=test'   #<6>
+
+$ curl -i -X POST http://localhost:8001/plugins \
+    --data name=rate-limiting \
+    --data config.minute=1 \
+    --data config.policy=local  #<7>
+----
+<1> Kong Gateway 3.0 up and running
+<2> A service points to random Wow expression by Owen Wilson. 
+<3> A route `/wow` poins to `wow-service`.
+<4> Create a `key-auth` plugin instance.
+<5> Create `example-user` consumer.
+<6> Create apiKey `test`
+<7> Create a global rate limiting plugin.
+
+Here is a default flow: API user calls `:8000/wow` to access API.
+Kong (via `key-auth` plugin) is there is an API key in the header.
+If there is one, it validates it and passes next to `rate-limiting` plugin.
+If there is no apiKey in header, Kong throws an error 
+
+[source,json]
+.error.json
+----
+{
+    "message": "No API key found in request"
+}
+----
+
+== A solution implemented in Kong Gateway 3.0
+
+Next, let's modify this behavior in order to alway invoke `rate-limiting` regardless if there is key provided or not.
+
+[source,bash]
+.filename.sh
+----
+RLID=`curl localhost:8001/plugins | jq -r '.data[] | select(.name == "rate-limiting").id'`
+
+curl -i -X DELETE http://localhost:8001/plugins/$RLID
+
+curl -i -X POST http://localhost:8001/plugins \
+  --data name=rate-limiting \
+  --data config.minute=1 \
+  --data config.policy=local \
+  --data ordering.before.access=key-auth    #<1>
+----
+<1> A very important new config `ordering.before.access` defines before what phase of specified plugin this plugin needs to be invoked.
+
+Now, when we invoke `:8000/wow` API, we will get `No API key found in request` but if we introspect the headers we will see that `rate-limiting` plugin is up for the task already.
+
+[source,shell]
+.filename.js
+----
+❱ http :8000/wow
+HTTP/1.1 401 Unauthorized
+Connection: keep-alive
+Content-Length: 45
+Content-Type: application/json; charset=utf-8
+Date: Mon, 12 Sep 2022 06:03:41 GMT
+RateLimit-Limit: 1
+RateLimit-Remaining: 0
+RateLimit-Reset: 19
+Server: kong/3.0.0.0-enterprise-edition
+WWW-Authenticate: Key realm="kong"
+X-Kong-Response-Latency: 3
+X-RateLimit-Limit-Minute: 1   //<1>
+X-RateLimit-Remaining-Minute: 0
+
+{
+    "message": "No API key found in request"
+}
+----
+<1> `rate-limiting` plugin runs *_before_* `key-auth` plugin.
+
+
+---
+
+[source,bash]
+.scratch-file.sh
+----
+KONG_LICENSE_DATA=$(cat $KONG_LICENSE_FILE)
+
+curl -Ls get.konghq.com/quickstart | KONG_LICENSE_DATA=$(cat $KONG_LICENSE_FILE) sh -s -- kong-gateway-internal -t master-alpine -e KONG_LICESE_DATA=$KONG_LICENSE_DATA
+----
+

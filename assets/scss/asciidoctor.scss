@@ -114,13 +114,13 @@
       padding: 0;
 
       .title {
-        color: #7a2518;
+        color: #3963b3;
         text-align: center;
 
         font-size: 1.6875rem;
         line-height: 1.2;
         word-spacing: -.05rem;
-        font-weight: 300;
+        //font-weight: 300;
         font-style: normal;
       }
     }
@@ -142,13 +142,13 @@
 
   .admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title {
     text-align: left;
-    font-size: 1rem;
+    font-size: 1em;
     font-style: italic;
   }
 
   .subheader, .admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title {
     line-height: 1.45;
-    color: #7a2518;
+    color: #3963b3;
     font-weight: 400;
     margin-top: 0;
     margin-bottom: .25rem;
@@ -378,7 +378,7 @@
         }
 
         &.content {
-          font-size: 1.0625rem;
+          font-size: 1em;
           // hyde-hyde fix : fix default padding and margin to 0
           margin: 0;
           padding: 0;
@@ -527,7 +527,7 @@
     .title {
       text-rendering: optimizeLegibility;
       text-align: left;
-      font-size: 1rem;
+      font-size: 2rem;
       font-style: italic;
     }
 
@@ -815,7 +815,7 @@
 
   #content h1 > a.anchor::before, h2 > a.anchor::before, h3 > a.anchor::before, #toctitle > a.anchor::before, .sidebarblock > .content > .title > a.anchor::before, h4 > a.anchor::before, h5 > a.anchor::before, h6 > a.anchor::before {
     content: "\00A7";  // this char '§'
-    font-size: .85em;
+    font-size: 1em;
     display: block;
     padding-top: .1em;
   }
