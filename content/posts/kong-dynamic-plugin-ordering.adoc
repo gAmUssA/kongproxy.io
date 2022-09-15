@@ -17,7 +17,7 @@ series: []
 :toc: macro
 
 .TL;DR
-NOTE: Use a new dynamic plugin ordering to control plugins' execution explicitly.
+NOTE: Use https://docs.konghq.com/gateway/latest/[Kong Gateway's] new dynamic plugin ordering to control plugin execution order.
 You can read more in the official documentation.
 TODO add documentation links.
 
