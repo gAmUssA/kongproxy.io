@@ -1,0 +1,180 @@
+---
+title: "Kong Dynamic Plugin Ordering"
+description: "A tutorial for using Kong Gateway's dynamic plugin ordering."
+date: 2022-09-09
+draft: false
+slug: "plugin-ordering"
+authors: ["Viktor Gamov", "Rick Spurgeon"]
+tags: ["Kong", "tutorial", "plugins"]
+categories: ["Kong", "Gateway"]
+externalLink : ""
+series: []
+---
+:source-highlighter: rouge
+:imagesdir: /images/2022/
+:rouge-style: base16
+:icons: font
+:toc: macro
+
+.TL;DR
+https://docs.konghq.com/gateway/latest/[Kong Gateway] provides dynamic plugin ordering allowing administrators to control plugin execution order. Dynamic plugin ordering was added in https://docs.konghq.com/gateway/changelog/#3000[Kong Enterprise 3.0] and the full technical reference is available in the https://docs.konghq.com/gateway/latest/kong-enterprise/plugin-ordering/[official documentation].
+
+---
+
+== Kong Gateway: API sentinel
+
+Kong Gateway is a lightweight, fast, and flexible API gateway. An API gateway is a https://en.wikipedia.org/wiki/Reverse_proxy[reverse proxy] that sits between your APIs and the consumers of them. Think of Kong Gateway as a guard at the door for your
+APIs. Requests are made to Kong Gateway, which provides the ability to protect, route, audit, and transform requests before they arrive at your API's waiting connection. These features are enabled via the Kong Gateway Plugin system, which allows for highly specialized configurations suited to your system's specific needs.
+
+Kong Gateway ships with bundled plugins and provides a software development kit for building custom ones. The https://docs.konghq.com/hub/[Kong Plugin Hub] is the best source for plugin information. 
+
+Plugins are defined with a https://docs.konghq.com/gateway/latest/plugin-development/custom-logic/#plugins-execution-order[static execution priority], represented by a numeric priority integer. When multiple plugins are set to be executed for a given request, the order is determined by ranking the plugins from highest (largest number) to lowest (smallest number) priority. 
+
+The static priority system is a good default mechanism covering common plugin ordering use cases, however, does not work when users have a requirement to customize execution order. For example, the https://docs.konghq.com/hub/kong-inc/rate-limiting/[Rate Limiting] plugin has a static priority of `910` and the https://docs.konghq.com/hub/kong-inc/key-auth/[Key Authentication] plugin has a static priority of `1250`. This is fine for situations where users wish to authorize requests before rate limiting them, but not possible if the reverse is desired.
+
+Kong Enterprise 3.0 introduces _dynamic plugin ordering_, which allows users to explicitly define the execution of plugins. The following guide looks at how Kong Gateway behaves by default and then modifies the behavior to change plugin execution order.
+
+== Kong Gateway Setup 
+
+When experimenting with new features with Kong Gateway, it's often helpful to have a test instance that is easy to create and destroy. The following instructions assume you have `curl` and https://docs.docker.com/get-docker/[Docker] installed.
+
+Start a new Kong Gateway with the `quickstart` script:
+
+[source,bash]
+----
+curl -Ls https://get.konghq.com/quickstart | sh -s -- -m
+----
+
+When Kong Gateway is ready, you will see:
+[source,bash]
+----
+✔ Kong is ready!
+----
+
+The script setup a https://docs.konghq.com/gateway/latest/key-concepts/services/[service] and a https://docs.konghq.com/gateway/latest/key-concepts/routes/[route] for you (via the `-m` flag above), and you can test that the request proxy (port `8000`) works with the following:
+[source,bash]
+----
+curl -i localhost:8000/mock/requests
+----
+
+== Static Plugin Ordering
+
+Next, use the Admin API (port `8001`) to install the Key Authentication plugin globally (will be executed for all requests):
+[source,bash]
+----
+curl -i -X POST http://localhost:8001/plugins --data name=key-auth
+----
+
+Create a new https://docs.konghq.com/gateway/latest/admin-api/#consumer-object[Consumer] (`example-user`):
+[source,bash]
+----
+curl -i -X POST \
+  --url http://localhost:8001/consumers/ \
+  --data "username=example-user"
+----
+
+Assign `example-user` a new key (`secret-key`):
+[source,bash]
+----
+curl -i -X POST \
+  --url http://localhost:8001/consumers/example-user/key-auth/ \
+  --data 'key=secret-key'
+----
+
+Enable the Rate Limiting plugin globally, configuring a maximum of 3 requests per minute:
+[source,bash]
+----
+curl -i -X POST http://localhost:8001/plugins \
+  --data name=rate-limiting \
+ 	--data config.minute=3 \
+  --data config.policy=local
+----
+
+Now, if you make the same request to the proxy, the gateway will prevent the request forwarding because you enabled the Key Authentication:
+[source,bash]
+----
+curl -i localhost:8000/mock/requests
+----
+
+Results in:
+[source,bash]
+----
+HTTP/1.1 401 Unauthorized
+Date: Wed, 21 Sep 2022 15:56:57 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+WWW-Authenticate: Key realm="kong"
+Content-Length: 45
+X-Kong-Response-Latency: 2
+Server: kong/3.0.0.0-enterprise-edition
+
+{
+  "message":"No API key found in request"
+}
+----
+
+When Kong Gateway's Rate Limiting plugin is executed, it will inject informational headers into the response. In the response headers above, you will notice there is no rate limiting specific information.
+
+Now, execute an authorized request and you will notice headers contaning rate limiting information:
+[source,bash]
+----
+curl -s -i -H 'apikey:secret-key' localhost:8000/mock/requests
+----
+
+You will notice headers containing rate limiting information:
+[source,bash]
+----
+...
+RateLimit-Reset: 27
+RateLimit-Remaining: 2
+X-RateLimit-Limit-Minute: 3
+X-RateLimit-Remaining-Minute: 2
+RateLimit-Limit: 3
+...
+----
+
+== Dynamic Plugin Ordering
+
+This works fine, but what if you want to limit request rates _before_ authenticating the caller? You may want to do this to protect
+your backend authentication service if you use one, or block offending clients as soon as possible. With Kong Gateway 3.0 dynamic ordering, this is a straight forward configuration.
+
+First, disable the current Rate Limiting plugin:
+[source,bash]
+----
+RLID=`curl localhost:8001/plugins | \
+  jq -r '.data[] | select(.name == "rate-limiting").id'`
+
+curl -i -X DELETE http://localhost:8001/plugins/$RLID
+----
+
+Reinstall the Rate Limiting plugin, this time specifying it's execution order _before_ the installed `key-auth`
+plugin:
+[source,bash]
+----
+curl -i -X POST http://localhost:8001/plugins \
+  --data name=rate-limiting \
+  --data config.minute=3 \
+  --data config.policy=local \
+  --data ordering.before.access=key-auth
+----
+
+Finally, make an _unauthorized_ request and verify that there is rate limiting information in the response headers. This is different
+then the default behavior and validates the dynamic execution order:
+[source,bash]
+----
+curl -i localhost:8000/mock/requests
+----
+
+You should see headers similar to this:
+[source,bash]
+----
+RateLimit-Reset: 15
+RateLimit-Remaining: 0
+X-RateLimit-Limit-Minute: 1
+X-RateLimit-Remaining-Minute: 0
+RateLimit-Limit: 1
+----
+
+If you execute the previous request more then 3 times in 1 minute, you will 
+see the response transition from unauthorized to API rate limit exceeded.
+
