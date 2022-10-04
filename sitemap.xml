@@ -3,21 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://kong.builders/authors/</loc>
-    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kong.builders/categories/</loc>
-    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/categories/gateway/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/tags/kong/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/categories/kong/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/tags/plugins/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/posts/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/authors/rick-spurgeon/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/tags/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/tags/tutorial/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kong.builders/authors/viktor-gamov/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kong.builders/tags/kic/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kong.builders/tags/kong/</loc>
-    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
-  </url><url>
     <loc>https://kong.builders/2022/06/14/kong-builders-stream-june-8th-2022/</loc>
-    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
-  </url><url>
-    <loc>https://kong.builders/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
     <loc>https://kong.builders/tags/kongbuilders/</loc>
@@ -32,16 +59,7 @@
     <loc>https://kong.builders/tags/kubernetes/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
-    <loc>https://kong.builders/posts/</loc>
-    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
-  </url><url>
     <loc>https://kong.builders/series/</loc>
-    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
-  </url><url>
-    <loc>https://kong.builders/tags/</loc>
-    <lastmod>2022-06-14T01:23:50-04:00</lastmod>
-  </url><url>
-    <loc>https://kong.builders/authors/viktor-gamov/</loc>
     <lastmod>2022-06-14T01:23:50-04:00</lastmod>
   </url><url>
     <loc>https://kong.builders/2022/06/13/hello/</loc>
@@ -51,9 +69,6 @@
     <lastmod>2022-06-13T23:18:19-04:00</lastmod>
   </url><url>
     <loc>https://kong.builders/tags/hugo/</loc>
-    <lastmod>2022-06-13T23:18:19-04:00</lastmod>
-  </url><url>
-    <loc>https://kong.builders/authors/rick-spurgeon/</loc>
     <lastmod>2022-06-13T23:18:19-04:00</lastmod>
   </url><url>
     <loc>https://kong.builders/tags/test/</loc>

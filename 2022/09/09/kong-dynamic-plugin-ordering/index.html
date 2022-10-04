@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Kong Developer Relation">
+<meta name="description" content="A tutorial for using Kong Gateway&#39;s dynamic plugin ordering.">
+<meta name="keywords" content="stuff,kong,gateway">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kong Dynamic Plugin Ordering"/>
+<meta name="twitter:description" content="A tutorial for using Kong Gateway&#39;s dynamic plugin ordering."/>
+
+<meta property="og:title" content="Kong Dynamic Plugin Ordering" />
+<meta property="og:description" content="A tutorial for using Kong Gateway&#39;s dynamic plugin ordering." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-09T00:00:00+00:00" />
+
+
+
+
+  <title>Kong Devrel Corner</title>
+
+  
+  <link rel="canonical" href="https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/">
+  
+
+  <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.6b1a4fbc48955b72aea7913e43fabeb45e8bc120da5aa41b598dd33adcac4b59.css" integrity="sha256-axpPvEiVW3Kup5E&#43;Q/q&#43;tF6LwSDaWqQbWY3TOtysS1k=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.39e41a7f16bdf8cb16e43cae7d714fa1016f1d2d2898a5b3f27f42c9979204e2.css" integrity="sha256-OeQafxa9&#43;MsW5DyufXFPoQFvHS0omKWz8n9CyZeSBOI=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+   
+
+
+  
+  
+    
+    <link rel="stylesheet" href="/scss/asciidoctor.min.c85cdcbc30f143cd9957a37c5738a6767f46766c9a876d99579ae41ae1e7cf07.css" integrity="sha256-yFzcvDDxQ82ZV6N8Vzimdn9Gdmyah22ZV5rkGuHnzwc=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+  <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+  
+
+  <meta name="generator" content="Hugo 0.102.3" />
+
+
+  
+
+</head>
+
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Kong Devrel Corner
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/">
+              Kong Dynamic Plugin Ordering
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-09-09T00:00:00Z">
+                September 9, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/viktor-gamov/">Viktor Gamov</a>
+      <span class="separator">•</span>
+    <a href="/authors/rick-spurgeon/">Rick Spurgeon</a></div>
+
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/kong/">Kong</a>
+      <span class="separator">•</span>
+    <a href="/categories/gateway/">Gateway</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/kong/">Kong</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/tutorial/">tutorial</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/plugins/">plugins</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <div class="paragraph">
+<div class="title">TL;DR</div>
+<p><a href="https://docs.konghq.com/gateway/latest/">Kong Gateway</a> provides dynamic plugin ordering allowing administrators to control plugin execution order. Dynamic plugin ordering was added in <a href="https://docs.konghq.com/gateway/changelog/#3000">Kong Enterprise 3.0</a> and the full technical reference is available in the <a href="https://docs.konghq.com/gateway/latest/kong-enterprise/plugin-ordering/">official documentation</a>.</p>
+</div>
+<hr/>
+<div class="sect1">
+<h2 id="_kong_gateway_api_sentinel">Kong Gateway: API sentinel</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Kong Gateway is a lightweight, fast, and flexible API gateway. An API gateway is a <a href="https://en.wikipedia.org/wiki/Reverse_proxy">reverse proxy</a> that sits between your APIs and the consumers of them. Think of Kong Gateway as a guard at the door for your
+APIs. Requests are made to Kong Gateway, which provides the ability to protect, route, audit, and transform requests before they arrive at your API’s waiting connection. These features are enabled via the Kong Gateway Plugin system, which allows for highly specialized configurations suited to your system’s specific needs.</p>
+</div>
+<div class="paragraph">
+<p>Kong Gateway ships with bundled plugins and provides a software development kit for building custom ones. The <a href="https://docs.konghq.com/hub/">Kong Plugin Hub</a> is the best source for plugin information.</p>
+</div>
+<div class="paragraph">
+<p>Plugins are defined with a <a href="https://docs.konghq.com/gateway/latest/plugin-development/custom-logic/#plugins-execution-order">static execution priority</a>, represented by a numeric priority integer. When multiple plugins are set to be executed for a given request, the order is determined by ranking the plugins from highest (largest number) to lowest (smallest number) priority.</p>
+</div>
+<div class="paragraph">
+<p>The static priority system is a good default mechanism covering common plugin ordering use cases, however, does not work when users have a requirement to customize execution order. For example, the <a href="https://docs.konghq.com/hub/kong-inc/rate-limiting/">Rate Limiting</a> plugin has a static priority of <code>910</code> and the <a href="https://docs.konghq.com/hub/kong-inc/key-auth/">Key Authentication</a> plugin has a static priority of <code>1250</code>. This is fine for situations where users wish to authorize requests before rate limiting them, but not possible if the reverse is desired.</p>
+</div>
+<div class="paragraph">
+<p>Kong Enterprise 3.0 introduces <em>dynamic plugin ordering</em>, which allows users to explicitly define the execution of plugins. The following guide looks at how Kong Gateway behaves by default and then modifies the behavior to change plugin execution order.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kong_gateway_setup">Kong Gateway Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When experimenting with new features with Kong Gateway, it’s often helpful to have a test instance that is easy to create and destroy. The following instructions assume you have <code>curl</code> and <a href="https://docs.docker.com/get-docker/">Docker</a> installed.</p>
+</div>
+<div class="paragraph">
+<p>Start a new Kong Gateway with the <code>quickstart</code> script:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-Ls</span> https://get.konghq.com/quickstart | sh <span style="color: #000080">-s</span> <span style="color: #000080">--</span> <span style="color: #000080">-m</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When Kong Gateway is ready, you will see:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">✔ Kong is ready!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The script setup a <a href="https://docs.konghq.com/gateway/latest/key-concepts/services/">service</a> and a <a href="https://docs.konghq.com/gateway/latest/key-concepts/routes/">route</a> for you (via the <code>-m</code> flag above), and you can test that the request proxy (port <code>8000</code>) works with the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-i</span> localhost:8000/mock/requests</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_static_plugin_ordering">Static Plugin Ordering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Next, use the Admin API (port <code>8001</code>) to install the Key Authentication plugin globally (will be executed for all requests):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-i</span> <span style="color: #000080">-X</span> POST http://localhost:8001/plugins <span style="color: #000080">--data</span> <span style="color: #008080">name</span><span style="color: #000000;font-weight: bold">=</span>key-auth</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create a new <a href="https://docs.konghq.com/gateway/latest/admin-api/#consumer-object">Consumer</a> (<code>example-user</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-i</span> <span style="color: #000080">-X</span> POST <span style="color: #d14">\</span>
+  <span style="color: #000080">--url</span> http://localhost:8001/consumers/ <span style="color: #d14">\</span>
+  <span style="color: #000080">--data</span> <span style="color: #d14">&#34;username=example-user&#34;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Assign <code>example-user</code> a new key (<code>secret-key</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-i</span> <span style="color: #000080">-X</span> POST <span style="color: #d14">\</span>
+  <span style="color: #000080">--url</span> http://localhost:8001/consumers/example-user/key-auth/ <span style="color: #d14">\</span>
+  <span style="color: #000080">--data</span> <span style="color: #d14">&#39;key=secret-key&#39;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Enable the Rate Limiting plugin globally, configuring a maximum of 3 requests per minute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-i</span> <span style="color: #000080">-X</span> POST http://localhost:8001/plugins <span style="color: #d14">\</span>
+  <span style="color: #000080">--data</span> <span style="color: #008080">name</span><span style="color: #000000;font-weight: bold">=</span>rate-limiting <span style="color: #d14">\</span>
+ 	<span style="color: #000080">--data</span> config.minute<span style="color: #000000;font-weight: bold">=</span>3 <span style="color: #d14">\</span>
+  <span style="color: #000080">--data</span> config.policy<span style="color: #000000;font-weight: bold">=</span><span style="color: #0086B3">local</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, if you make the same request to the proxy, the gateway will prevent the request forwarding because you enabled the Key Authentication:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-i</span> localhost:8000/mock/requests</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Results in:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">HTTP/1.1 401 Unauthorized
+Date: Wed, 21 Sep 2022 15:56:57 GMT
+Content-Type: application/json<span style="background-color: #f8f8f8">;</span> <span style="color: #008080">charset</span><span style="color: #000000;font-weight: bold">=</span>utf-8
+Connection: keep-alive
+WWW-Authenticate: Key <span style="color: #008080">realm</span><span style="color: #000000;font-weight: bold">=</span><span style="color: #d14">&#34;kong&#34;</span>
+Content-Length: 45
+X-Kong-Response-Latency: 2
+Server: kong/3.0.0.0-enterprise-edition
+
+<span style="color: #000000;font-weight: bold">{</span>
+  <span style="color: #d14">&#34;message&#34;</span>:<span style="color: #d14">&#34;No API key found in request&#34;</span>
+<span style="color: #000000;font-weight: bold">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When Kong Gateway’s Rate Limiting plugin is executed, it will inject informational headers into the response. In the response headers above, you will notice there is no rate limiting specific information.</p>
+</div>
+<div class="paragraph">
+<p>Now, execute an authorized request and you will notice headers contaning rate limiting information:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-s</span> <span style="color: #000080">-i</span> <span style="color: #000080">-H</span> <span style="color: #d14">&#39;apikey:secret-key&#39;</span> localhost:8000/mock/requests</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will notice headers containing rate limiting information:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">...
+RateLimit-Reset: 27
+RateLimit-Remaining: 2
+X-RateLimit-Limit-Minute: 3
+X-RateLimit-Remaining-Minute: 2
+RateLimit-Limit: 3
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dynamic_plugin_ordering">Dynamic Plugin Ordering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This works fine, but what if you want to limit request rates <em>before</em> authenticating the caller? You may want to do this to protect
+your backend authentication service if you use one, or block offending clients as soon as possible. With Kong Gateway 3.0 dynamic ordering, this is a straight forward configuration.</p>
+</div>
+<div class="paragraph">
+<p>First, disable the current Rate Limiting plugin:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash"><span style="color: #008080">RLID</span><span style="color: #000000;font-weight: bold">=</span><span style="color: #d14">`</span>curl localhost:8001/plugins | <span style="color: #d14">\</span>
+  jq <span style="color: #000080">-r</span> <span style="color: #d14">&#39;.data[] | select(.name == &#34;rate-limiting&#34;).id&#39;</span><span style="color: #d14">`</span>
+
+curl <span style="color: #000080">-i</span> <span style="color: #000080">-X</span> DELETE http://localhost:8001/plugins/<span style="color: #008080">$RLID</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Reinstall the Rate Limiting plugin, this time specifying it’s execution order <em>before</em> the installed <code>key-auth</code>
+plugin:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-i</span> <span style="color: #000080">-X</span> POST http://localhost:8001/plugins <span style="color: #d14">\</span>
+  <span style="color: #000080">--data</span> <span style="color: #008080">name</span><span style="color: #000000;font-weight: bold">=</span>rate-limiting <span style="color: #d14">\</span>
+  <span style="color: #000080">--data</span> config.minute<span style="color: #000000;font-weight: bold">=</span>3 <span style="color: #d14">\</span>
+  <span style="color: #000080">--data</span> config.policy<span style="color: #000000;font-weight: bold">=</span><span style="color: #0086B3">local</span> <span style="color: #d14">\</span>
+  <span style="color: #000080">--data</span> ordering.before.access<span style="color: #000000;font-weight: bold">=</span>key-auth</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, make an <em>unauthorized</em> request and verify that there is rate limiting information in the response headers. This is different
+then the default behavior and validates the dynamic execution order:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">curl <span style="color: #000080">-i</span> localhost:8000/mock/requests</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see headers similar to this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="background-color: #f8f8f8"><code data-lang="bash">RateLimit-Reset: 15
+RateLimit-Remaining: 0
+X-RateLimit-Limit-Minute: 1
+X-RateLimit-Remaining-Minute: 0
+RateLimit-Limit: 1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you execute the previous request more then 3 times in 1 minute, you will
+see the response transition from unauthorized to API rate limit exceeded.</p>
+</div>
+</div>
+</div>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2022
+     Kong Developer Relation 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+  
+  <script src="/js/coder.min.236049395dc3682fb2719640872958e12f1f24067bb09c327b233e6290c7edac.js" integrity="sha256-I2BJOV3DaC&#43;ycZZAhylY4S8fJAZ7sJwyeyM&#43;YpDH7aw="></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

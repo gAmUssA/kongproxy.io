@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kong on Kong Devrel Corner</title>
-    <link>https://kong.builders/tags/kong/</link>
+    <link>https://kong.builders/categories/kong/</link>
     <description>Recent content in Kong on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://kong.builders/tags/kong/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://kong.builders/categories/kong/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kong Dynamic Plugin Ordering</title>
       <link>https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/</link>
@@ -15,17 +15,6 @@
       <guid>https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/</guid>
       <description>TL;DR Kong Gateway provides dynamic plugin ordering allowing administrators to control plugin execution order. Dynamic plugin ordering was added in Kong Enterprise 3.0 and the full technical reference is available in the official documentation.
 Kong Gateway: API sentinel Kong Gateway is a lightweight, fast, and flexible API gateway. An API gateway is a reverse proxy that sits between your APIs and the consumers of them. Think of Kong Gateway as a guard at the door for your APIs.</description>
-    </item>
-    
-    <item>
-      <title>Kong Builders Stream - June 8th 2022</title>
-      <link>https://kong.builders/2022/06/14/kong-builders-stream-june-8th-2022/</link>
-      <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
-      
-      <guid>https://kong.builders/2022/06/14/kong-builders-stream-june-8th-2022/</guid>
-      <description>Table of Contents YouTube link Plugins Bot Detection Proxy Cache Metrics with Prometheus and Grafana In this episode of Kong Builders, we took a look at some Kong Gateway OSS Plugins and how to run those in Kubernetes with Kong Ingress Controller.
-YouTube link Plugins Bot Detection 🔗 Bot Detection
-Bot Detection Plugin config for Kubernetes 1 2 3 4 5 6 7 8 9 10 11 12 13 14 apiVersion: configuration.</description>
     </item>
     
   </channel>

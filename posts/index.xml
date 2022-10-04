@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kong.builders/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://kong.builders/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kong Dynamic Plugin Ordering</title>
+      <link>https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/</guid>
+      <description>TL;DR Kong Gateway provides dynamic plugin ordering allowing administrators to control plugin execution order. Dynamic plugin ordering was added in Kong Enterprise 3.0 and the full technical reference is available in the official documentation.
+Kong Gateway: API sentinel Kong Gateway is a lightweight, fast, and flexible API gateway. An API gateway is a reverse proxy that sits between your APIs and the consumers of them. Think of Kong Gateway as a guard at the door for your APIs.</description>
+    </item>
+    
     <item>
       <title>Kong Builders Stream - June 8th 2022</title>
       <link>https://kong.builders/2022/06/14/kong-builders-stream-june-8th-2022/</link>

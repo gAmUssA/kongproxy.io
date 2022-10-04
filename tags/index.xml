@@ -6,22 +6,40 @@
     <description>Recent content in Tags on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kong.builders/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://kong.builders/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kong</title>
+      <link>https://kong.builders/tags/kong/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://kong.builders/tags/kong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plugins</title>
+      <link>https://kong.builders/tags/plugins/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://kong.builders/tags/plugins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorial</title>
+      <link>https://kong.builders/tags/tutorial/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://kong.builders/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>kic</title>
       <link>https://kong.builders/tags/kic/</link>
       <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
       
       <guid>https://kong.builders/tags/kic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kong</title>
-      <link>https://kong.builders/tags/kong/</link>
-      <pubDate>Tue, 14 Jun 2022 01:23:50 -0400</pubDate>
-      
-      <guid>https://kong.builders/tags/kong/</guid>
       <description></description>
     </item>
     

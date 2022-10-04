@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rick Spurgeon on Kong Devrel Corner</title>
-    <link>https://kong.builders/authors/rick-spurgeon/</link>
-    <description>Recent content in Rick Spurgeon on Kong Devrel Corner</description>
+    <title>Gateway on Kong Devrel Corner</title>
+    <link>https://kong.builders/categories/gateway/</link>
+    <description>Recent content in Gateway on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://kong.builders/authors/rick-spurgeon/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://kong.builders/categories/gateway/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kong Dynamic Plugin Ordering</title>
       <link>https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/</link>
@@ -15,16 +15,6 @@
       <guid>https://kong.builders/2022/09/09/kong-dynamic-plugin-ordering/</guid>
       <description>TL;DR Kong Gateway provides dynamic plugin ordering allowing administrators to control plugin execution order. Dynamic plugin ordering was added in Kong Enterprise 3.0 and the full technical reference is available in the official documentation.
 Kong Gateway: API sentinel Kong Gateway is a lightweight, fast, and flexible API gateway. An API gateway is a reverse proxy that sits between your APIs and the consumers of them. Think of Kong Gateway as a guard at the door for your APIs.</description>
-    </item>
-    
-    <item>
-      <title>🎊 Hello</title>
-      <link>https://kong.builders/2022/06/13/hello/</link>
-      <pubDate>Mon, 13 Jun 2022 23:18:19 -0400</pubDate>
-      
-      <guid>https://kong.builders/2022/06/13/hello/</guid>
-      <description>Welcome to this temporary and unofficial Kong Devrel blog.
-Here we will be sharing some quick notes that my not be suitable for official Kong Blog. At least for now.</description>
     </item>
     
   </channel>

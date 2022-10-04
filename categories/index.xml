@@ -6,7 +6,25 @@
     <description>Recent content in Categories on Kong Devrel Corner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jun 2022 01:23:50 -0400</lastBuildDate><atom:link href="https://kong.builders/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://kong.builders/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gateway</title>
+      <link>https://kong.builders/categories/gateway/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://kong.builders/categories/gateway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kong</title>
+      <link>https://kong.builders/categories/kong/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://kong.builders/categories/kong/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>kongbuilders</title>
       <link>https://kong.builders/categories/kongbuilders/</link>
